@@ -14,7 +14,7 @@ var partidas = +prompt("Escolha quantas partidas vamos disputar:")
 console.log(`Você escolheu ${partidas} partidas, vamos começar`)
 
 var rodada = 1
-var usuarioPontos = 0
+var usuariopontos = 0
 var pontosPc = 0
 var empate = 0
 const escolha = ["PEDRA", "PAPEL", "TESOURA"]
@@ -25,7 +25,7 @@ function jogar() {
     
     if (rodada <= partidas) {
 
-var usuario = +prompt("Escolha: 1 - PEDRA / 2 - PAPEL / 3 - TESOURA")
+var usuario = +prompt("Escolha: 1 - PEDRA / 2 - PAPEL / 3 - TESOURA: ")
 if (usuario == 1){
   console.log(`Você escolheu PEDRA!`)
 } else if (usuario == 2){
@@ -41,70 +41,39 @@ let computador = Math.floor(Math.random() * escolha.length)
       console.log(`O computador escolheu PAPEL!`);
   } else {
       console.log(`O computador escolheu TESOURA!`);
-  } if ((usuario == 1 && computador == 1) || (usuario == 2 && computador == 2) ||(usuario == 3 && computador == 3)) {
-    console.log("Ambos escolheram a mesma opção, DEU EMPATE")
-    rodada++
-    empate++
-    jogar()
-  } else if (usuario == 1 && computador == 2) {
+  } if ((usuario == 1 && computador == 1) || (usuario == 2 && computador == 2) || (usuario == 3 && computador == 3)) {
+        console.log("Ambos escolheram a mesma opção, DEU EMPATE")
+        rodada++
+        empate++
+    // jogar()
+  } else if ((usuario == 1 && computador == 2) ||  (usuario == 3 && computador == 1) || (usuario == 2 && computador == 3)){
       console.log("O COMPUTADOR GANHOU!")
       rodada++
       pontosPc++
       jogar()
-  } else if (usuario == 1 && computador == 3) {
-      console.log("O usuario GANHOU!")
+  } else ((usuario == 2 && computador == 1) || (usuario == 3 && computador == 2) || (usuario == 1  && computador == 3)); {
+      console.log("O USUÁRIO GANHOU!")
       rodada++
-      pontosusuario++
+      usuariopontos++
       jogar()
-  } if (usuario == 2 && computador == 1) {
-    console.log("O usuario GANHOU!")
-    rodada++
-    pontosusuario++
-    jogar()
-  } else if (usuario == 2 && computador == 2) {
-      console.log("Ambos escolheram a mesma opção, DEU EMPATE")
-      rodada++
-      empate++
-      jogar()
-  } else if (usuario == 2 && computador == 3) {
-      console.log("O COMPUTADOR GANHOU!")
-      rodada++
-      pontosPc++
-      jogar()
-  } if (usuario == 3 && computador == 1) {
-    console.log("O COMPUTADOR GANHOU!")
-    rodada++
-    pontosPc++
-    jogar()
-  }  else if (usuario == 3  && computador == 2) {
-      console.log("O usuario GANHOU")
-      rodada++
-      pontosusuario++
-      jogar()
-  } else if (usuario == 3 && computador == 3) {
-      console.log("Ambos escolheram a mesma opção, DEU EMPATE")
-      rodada++
-      empate++
-      jogar()
+  } 
 } 
     
-} else  {}
-
 }
 
 console.log(`Após ${partidas} partidas, o placar de cada um ficou assim:`)
 console.log()
-console.log(`O usuario fez ${usuarioPontos} ponto(s))`)
+console.log(`O usuario fez ${usuariopontos} ponto(s))`)
 console.log()
 console.log(`O computador fez ${pontosPc} ponto(s)`)
 console.log()
 console.log(`Tiveram ${empate} empates`)
 
-if (usuarioPontos < pontosPc) {
+if (usuariopontos < pontosPc) {
     console.log('O grande vencedor é o COMPUTADOR')
-} else if (usuarioPontos > pontosPc) {
+} else if (usuariopontos > pontosPc) {
     console.log('O grande vencedor é o usuario')
-} else if (usuarioPontos = pontosPc) {
+} else if (usuariopontos = pontosPc) {
     console.log('Final empatado, ninguém venceu')
 }
 
